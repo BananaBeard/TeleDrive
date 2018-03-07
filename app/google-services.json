@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "663479497631",
+    "firebase_url": "https://teledrive-856ba.firebaseio.com",
+    "project_id": "teledrive-856ba",
+    "storage_bucket": "teledrive-856ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663479497631:android:55d323d061f978c7",
+        "android_client_info": {
+          "package_name": "com.kovalenko.teledrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663479497631-tv4edgn0qrjlrd52sdr58jmcfc008461.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kovalenko.teledrive",
+            "certificate_hash": "7862c16c0e30a2085aff66daa4f026125004b125"
+          }
+        },
+        {
+          "client_id": "663479497631-4okags4vhakj0fgn10ui6fodpbo3i8mp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHCy67RoWUYTnXUVoymPXoopEMO5i9GWU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663479497631-4okags4vhakj0fgn10ui6fodpbo3i8mp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

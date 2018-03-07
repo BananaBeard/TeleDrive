@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TeleDrive</string>
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="menu_logout">Log out</string>
+</resources>
