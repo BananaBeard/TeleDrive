@@ -53,7 +53,7 @@ abstract class LoadListFragment: Fragment() {
                 .setQuery(loadsQuery, Load::class.java)
                 .build()
 
-        mAdapter = object : FirebaseRecyclerAdapter<Load, LoadViewHolder>(options) {
+        mAdapter = object: FirebaseRecyclerAdapter<Load, LoadViewHolder>(options) {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoadViewHolder {
                 var inflater = LayoutInflater.from(parent!!.context)

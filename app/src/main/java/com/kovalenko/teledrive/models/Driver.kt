@@ -4,7 +4,5 @@ import java.util.*
 
 class Driver(
         var driverName: String = "",
-        var birthDate: Date? = null,
-        var truckYear: Int = 0,
-        var reeferYear: Int = 0
+        var birthDate: Date? = null
 )

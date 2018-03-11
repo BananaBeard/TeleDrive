@@ -5,4 +5,9 @@
     <string name="title_activity_login">Sign in</string>
 
     <string name="menu_logout">Log out</string>
+
+    <string name="menu_loads">Loads</string>
+    <string name="menu_drivers">Drivers</string>
+    <string name="menu_facilities">Facilities</string>
+    <string name="menu_trucks">Trucks</string>
 </resources>
