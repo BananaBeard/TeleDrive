@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.kovalenko.teledrive.NewLoadActivity
 import com.kovalenko.teledrive.R
-import com.kovalenko.teledrive.getIntent
+import com.kovalenko.teledrive.fragments.listfragments.load.AllLoadsFragment
 import kotlinx.android.synthetic.main.fragment_loads.*
 
 class LoadsFragment: Fragment() {

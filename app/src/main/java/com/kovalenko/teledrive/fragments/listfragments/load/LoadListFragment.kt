@@ -1,4 +1,4 @@
-package com.kovalenko.teledrive.fragments
+package com.kovalenko.teledrive.fragments.listfragments.load
 
 import android.content.Intent
 import android.os.Bundle

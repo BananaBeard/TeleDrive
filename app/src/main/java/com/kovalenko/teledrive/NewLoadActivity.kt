@@ -64,10 +64,7 @@ class NewLoadActivity : AppCompatActivity() {
             driverRate: Double
     ) {
         var key = mDatabase.child("loads").push().key
-        var load = Load(userId, loadId, customer, custRate,
-                driverRate, LoadType.REEFER, 12,
-                null, null, null
-        )
+        var load = Load()
 
         mDatabase.child("loads").child(key).setValue(load)
 //        var loadValues = load.toMap()
