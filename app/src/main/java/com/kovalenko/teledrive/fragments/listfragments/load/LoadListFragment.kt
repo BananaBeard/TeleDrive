@@ -30,7 +30,7 @@ abstract class LoadListFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        var rootView = inflater.inflate(R.layout.fragment_all_loads, container, false)
+        var rootView = inflater.inflate(R.layout.fragment_load_list, container, false)
 
         mDatabase = FirebaseDatabase.getInstance().reference
         mRecycler = rootView.findViewById(R.id.loads_list)
