@@ -22,7 +22,9 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".LoadDetailActivity" />
-        <activity android:name=".NewLoadActivity"/>
+        <activity android:name=".NewLoadActivity" />
+        <activity android:name=".TruckDetailActivity" />
+        <activity android:name=".NewTruckActivity" />
     </application>
 
 </manifest>

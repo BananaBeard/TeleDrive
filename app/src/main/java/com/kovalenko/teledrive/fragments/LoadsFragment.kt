@@ -47,7 +47,6 @@ class LoadsFragment: Fragment() {
             val intent = Intent(activity, NewLoadActivity::class.java)
             startActivity(intent)
         }
-
     }
 }
 
