@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "663479497631-5frldlnr2cvg94tk0e74bk6gk78qcnct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kovalenko.teledrive",
+            "certificate_hash": "bbc946212cbb6306eaee4d5a749c4ace3524a3cc"
+          }
+        },
+        {
           "client_id": "663479497631-tv4edgn0qrjlrd52sdr58jmcfc008461.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

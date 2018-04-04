@@ -1,12 +1,12 @@
-package com.kovalenko.teledrive
+package com.kovalenko.teledrive.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.*
+import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.models.Load
-import com.kovalenko.teledrive.models.LoadType
 import com.kovalenko.teledrive.models.User
 import kotlinx.android.synthetic.main.activity_new_load.*
 

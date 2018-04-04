@@ -1,4 +1,4 @@
-package com.kovalenko.teledrive
+package com.kovalenko.teledrive.activity
 
 import android.support.v7.app.AppCompatActivity
 

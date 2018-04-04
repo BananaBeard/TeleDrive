@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SignInActivity"
+            android:name=".activity.SignInActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoadDetailActivity" />
-        <activity android:name=".NewLoadActivity" />
-        <activity android:name=".TruckDetailActivity" />
-        <activity android:name=".NewTruckActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.LoadDetailActivity" />
+        <activity android:name=".activity.NewLoadActivity" />
+        <activity android:name=".activity.TruckDetailActivity" />
+        <activity android:name=".activity.NewTruckActivity" />
     </application>
 
 </manifest>

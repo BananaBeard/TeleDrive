@@ -1,16 +1,13 @@
-package com.kovalenko.teledrive
+package com.kovalenko.teledrive.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.PagerAdapter
-import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
+import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 

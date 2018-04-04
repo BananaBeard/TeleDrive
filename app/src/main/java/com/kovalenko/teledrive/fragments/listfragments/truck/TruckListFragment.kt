@@ -15,7 +15,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.kovalenko.teledrive.R
-import com.kovalenko.teledrive.TruckDetailActivity
+import com.kovalenko.teledrive.activity.TruckDetailActivity
 import com.kovalenko.teledrive.models.Truck
 import com.kovalenko.teledrive.viewholder.TruckViewHolder
 

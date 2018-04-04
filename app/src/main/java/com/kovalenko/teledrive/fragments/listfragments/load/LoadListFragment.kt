@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import com.kovalenko.teledrive.LoadDetailActivity
+import com.kovalenko.teledrive.activity.LoadDetailActivity
 import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.models.Load
 import com.kovalenko.teledrive.viewholder.LoadViewHolder

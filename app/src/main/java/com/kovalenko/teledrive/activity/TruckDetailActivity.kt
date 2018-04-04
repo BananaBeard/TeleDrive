@@ -1,7 +1,8 @@
-package com.kovalenko.teledrive
+package com.kovalenko.teledrive.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.kovalenko.teledrive.R
 
 class TruckDetailActivity : AppCompatActivity() {
 
