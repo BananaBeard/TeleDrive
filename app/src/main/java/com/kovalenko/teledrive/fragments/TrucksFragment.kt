@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,7 @@ class TrucksFragment: Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mPagerAdapter = object : FragmentPagerAdapter(activity!!.supportFragmentManager) {
+        mPagerAdapter = object : FragmentStatePagerAdapter(childFragmentManager) {
             val mFragments = arrayOf(
                     AllTrucksFragment(),
                     AllTrucksFragment(),
@@ -48,4 +49,6 @@ class TrucksFragment: Fragment() {
             startActivity(intent)
         }
     }
+
+
 }

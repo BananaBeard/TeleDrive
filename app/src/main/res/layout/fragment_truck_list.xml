@@ -1,7 +1,12 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh_trucks">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/trucks_list"
@@ -12,4 +17,5 @@
         android:padding="5dp"
         android:scrollbars="vertical"
         tools:listitem="@layout/item_truck" />
-</FrameLayout>
+    </FrameLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

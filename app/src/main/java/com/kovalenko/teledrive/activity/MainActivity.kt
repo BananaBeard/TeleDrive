@@ -3,6 +3,7 @@ package com.kovalenko.teledrive.activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_menu)
 
         nav_view.setNavigationItemSelectedListener { item ->
             item.isChecked = true
@@ -62,15 +67,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val i = item.itemId
-        return if (i == R.id.action_logout) {
-            FirebaseAuth.getInstance().signOut()
-            startActivity(Intent(this, SignInActivity::class.java))
-            finish()
-            true
-        } else {
-            super.onOptionsItemSelected(item)
+//        val i = item.itemId
+//        return if (i == R.id.action_logout) {
+//            FirebaseAuth.getInstance().signOut()
+//            startActivity(Intent(this, SignInActivity::class.java))
+//            finish()
+//            true
+//        } else {
+//            super.onOptionsItemSelected(item)
+//        }
+
+        when(item.itemId){
+            R.id.action_logout -> {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this, SignInActivity::class.java))
+                finish()
+                return true
+            }
+            android.R.id.home -> {
+                drawer_layout.openDrawer(GravityCompat.START)
+                return true
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object {

@@ -18,6 +18,7 @@ import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.activity.TruckDetailActivity
 import com.kovalenko.teledrive.models.Truck
 import com.kovalenko.teledrive.viewholder.TruckViewHolder
+import kotlinx.android.synthetic.main.fragment_truck_list.*
 
 abstract class TruckListFragment: Fragment() {
 
@@ -33,13 +34,13 @@ abstract class TruckListFragment: Fragment() {
 
         mDatabase = FirebaseDatabase.getInstance().reference
         mRecycler = rootView.findViewById(R.id.trucks_list)
-        mRecycler.setHasFixedSize(true)
+        mRecycler.setHasFixedSize(false)
 
         return rootView
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         mManager = LinearLayoutManager(activity)
         mManager.reverseLayout = true
@@ -72,6 +73,11 @@ abstract class TruckListFragment: Fragment() {
             }
         }
         mRecycler.adapter = mAdapter
+
+        swipe_refresh_trucks.setOnRefreshListener {
+            mAdapter.notifyDataSetChanged()
+            swipe_refresh_trucks.isRefreshing = false
+        }
     }
 
     override fun onStart() {
@@ -79,6 +85,11 @@ abstract class TruckListFragment: Fragment() {
         if (mAdapter != null) {
             mAdapter.startListening()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mAdapter.notifyDataSetChanged()
     }
 
     override fun onStop() {
