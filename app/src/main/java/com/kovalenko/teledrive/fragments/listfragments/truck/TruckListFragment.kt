@@ -1,8 +1,12 @@
 package com.kovalenko.teledrive.fragments.listfragments.truck
 
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -63,6 +67,18 @@ abstract class TruckListFragment: Fragment() {
                     intent.putExtra(TruckDetailActivity.EXTRA_TRUCK_KEY, truckKey)
                     startActivity(intent)
                 }
+
+                holder.itemView.isLongClickable = true
+
+                holder.itemView.setOnLongClickListener {
+
+                    var bundle = Bundle()
+                    var dialog = DialogDeleteTruck()
+                    dialog.show(childFragmentManager, "777")
+
+                    truckRef.removeValue()
+                    true
+                }
                 holder.bindToTruck(model!!)
             }
 
@@ -102,6 +118,38 @@ abstract class TruckListFragment: Fragment() {
     fun getUid() = FirebaseAuth.getInstance().currentUser!!.uid
 
     abstract fun getQuery(databaseReference: DatabaseReference): Query
+
+    class DialogDeleteTruck: DialogFragment(){
+
+        private lateinit var callback: OnDeletingTruck
+
+        interface OnDeletingTruck {
+            fun onAccept(result: Boolean)
+        }
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            callback = targetFragment as OnDeletingTruck
+        }
+
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            var builder = AlertDialog.Builder(activity)
+            builder.setTitle("Are you sure you want to delete this note?")
+
+            builder.setPositiveButton("Yes", object: DialogInterface.OnClickListener {
+                override fun onClick(p0: DialogInterface?, p1: Int) {
+                    dismiss()
+                }
+            })
+            builder.setNegativeButton("No", object: DialogInterface.OnClickListener {
+                override fun onClick(p0: DialogInterface?, p1: Int) {
+                    dismiss()
+                }
+            })
+            return builder.create()
+        }
+    }
 
     companion object {
         private val TAG = "TruckListFragment"
