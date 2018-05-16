@@ -61,8 +61,7 @@ abstract class LoadListFragment: Fragment() {
                 return LoadViewHolder(inflater.inflate(R.layout.item_load, parent, false))
             }
 
-
-            override fun onBindViewHolder(holder: LoadViewHolder?, position: Int, model: Load?) {
+            override fun onBindViewHolder(holder: LoadViewHolder, position: Int, model: Load) {
 
                 val loadRef = getRef(position)
                 val loadKey = loadRef.key

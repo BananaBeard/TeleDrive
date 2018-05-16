@@ -29,7 +29,7 @@ class NewTruckActivity: AppCompatActivity() {
             values[i-1990] = i.toString()
         }
 
-        with(traktor_year_picker) {
+        with(tractor_year_picker) {
             maxValue = values[values.size-1]!!.toInt()
             minValue = values[0]!!.toInt()
             displayedValues = values
@@ -47,7 +47,7 @@ class NewTruckActivity: AppCompatActivity() {
         val truckBrand = field_truck_brand.text.toString()
         val truckModel = field_truck_model.text.toString()
 
-        val traktorYear = traktor_year_picker.value
+        val tractorYear = tractor_year_picker.value
         val reeferYear = reefer_year_picker.value
 
         val userId = getUid()
@@ -66,7 +66,7 @@ class NewTruckActivity: AppCompatActivity() {
                             "Error: could not fetch user.",
                             Toast.LENGTH_SHORT).show()
                 } else {
-                    addNewTruck(userId, truckBrand, truckModel, traktorYear, reeferYear)
+                    addNewTruck(userId, truckBrand, truckModel, tractorYear, reeferYear)
                 }
                 finish()
             }
@@ -77,11 +77,11 @@ class NewTruckActivity: AppCompatActivity() {
             userId: String,
             truckBrand: String,
             truckModel: String,
-            traktorYear: Int,
+            tractorYear: Int,
             reeferYear: Int
     ) {
         var key = mDatabase.child("trucks").push().key
-        var truck = Truck(truckBrand, truckModel, traktorYear, reeferYear)
+        var truck = Truck(truckBrand, truckModel, tractorYear, reeferYear)
 
         mDatabase.child("trucks").child(key).setValue(truck)
     }
