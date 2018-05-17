@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import com.kovalenko.teledrive.activity.NewTruckActivity
 import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.fragments.listfragments.truck.AllTrucksFragment
+import com.kovalenko.teledrive.fragments.listfragments.truck.AvailableTrucksFragment
+import com.kovalenko.teledrive.fragments.listfragments.truck.BusyTrucksFragment
 import kotlinx.android.synthetic.main.fragment_trucks.*
 
 class TrucksFragment: Fragment() {
@@ -24,11 +26,11 @@ class TrucksFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mPagerAdapter = object : FragmentStatePagerAdapter(childFragmentManager) {
+        mPagerAdapter = object : FragmentPagerAdapter(fragmentManager) {
             val mFragments = arrayOf(
                     AllTrucksFragment(),
-                    AllTrucksFragment(),
-                    AllTrucksFragment()
+                    AvailableTrucksFragment(),
+                    BusyTrucksFragment()
             )
             val mFragmentNames = arrayOf(
                     "All truck",

@@ -10,4 +10,8 @@ abstract class DetailActivity : AppCompatActivity() {
     }
 
     abstract fun submitChanges()
+
+    abstract fun enableEdit(switch: Boolean)
+
+    abstract fun validateChanges(): Boolean
 }

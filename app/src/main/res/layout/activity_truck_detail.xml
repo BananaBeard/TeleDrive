@@ -40,9 +40,9 @@
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="13dp"
                 android:layout_toEndOf="@id/truck_detail_brand_label"
-                android:focusable="false"
+                android:clickable="false"
                 android:hint="Brand"
-                android:inputType="text"
+                android:inputType="none"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
                 android:singleLine="true"
@@ -67,9 +67,9 @@
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/truck_detail_model_label"
-                android:focusable="false"
+                android:clickable="false"
                 android:hint="Model"
-                android:inputType="text"
+                android:inputType="none"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
                 android:singleLine="true"
@@ -108,8 +108,8 @@
                 android:layout_alignBottom="@+id/truck_detail_tractor_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="74dp"
-                android:focusable="false"
-                android:inputType="number"
+                android:clickable="false"
+                android:inputType="none"
                 android:textAlignment="center" />
 
             <TextView
@@ -129,8 +129,8 @@
                 android:layout_alignBaseline="@id/truck_detail_reefer_label"
                 android:layout_alignBottom="@+id/truck_detail_reefer_label"
                 android:layout_alignStart="@+id/edit_tractor_year"
-                android:focusable="false"
-                android:inputType="number"
+                android:clickable="false"
+                android:inputType="none"
                 android:textAlignment="center" />
 
         </RelativeLayout>
@@ -151,7 +151,7 @@
             android:layout_height="match_parent">
 
             <Switch
-                android:id="@+id/switchTruckBusy"
+                android:id="@+id/switch_truck_busy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -160,18 +160,19 @@
                 android:paddingStart="15dp"
                 android:paddingTop="15dp"
                 android:text="Busy"
+                android:enabled="false"
                 android:textSize="18sp" />
 
             <View
                 android:id="@+id/divider_edit_truck"
-                android:layout_below="@id/switchTruckBusy"
+                android:layout_below="@id/switch_truck_busy"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_alignParentStart="true"
                 android:background="?android:attr/listDivider" />
 
             <Switch
-                android:id="@+id/switchEditTruck"
+                android:id="@+id/switch_edit_truck"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -186,14 +187,14 @@
 
     </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/buttonSaveTruck"
-        android:layout_width="101dp"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_edit_truck"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:text="Save"
-        android:visibility="invisible" />
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_save_black_24dp" />
 
 </RelativeLayout>

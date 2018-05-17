@@ -74,6 +74,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
-        app:backgroundTint="?attr/colorPrimaryDark"
-        app:srcCompat="@drawable/ic_add_black_24dp"/>
+        app:srcCompat="@drawable/ic_add_white_24dp" />
 </RelativeLayout>

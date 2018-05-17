@@ -44,7 +44,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/truck_years"
             android:orientation="horizontal"
-            android:layout_below="@+id/truck_info">
+            android:layout_below="@+id/truck_info"
+            android:layout_marginTop="10dp">
             <TextView
                 android:id="@+id/tractor_year"
                 style="@style/TextAppearance.AppCompat.Medium"

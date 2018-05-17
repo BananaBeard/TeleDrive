@@ -77,7 +77,7 @@ abstract class TruckListFragment: Fragment() {
 
                     true
                 }
-                holder.bindToTruck(model!!)
+                holder.bindToTruck(model)
             }
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TruckViewHolder {
