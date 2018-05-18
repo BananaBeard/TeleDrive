@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
             drawer_layout.closeDrawers()
 
             var fragment: Fragment
-            var fragmentId = ""
 
             when(item.itemId) {
                 R.id.nav_loads -> {
@@ -51,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                             .replace(R.id.content_layout, fragment, "LOADS").commit()
                 }
             }
-
             true
         }
 
@@ -67,15 +65,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        val i = item.itemId
-//        return if (i == R.id.action_logout) {
-//            FirebaseAuth.getInstance().signOut()
-//            startActivity(Intent(this, SignInActivity::class.java))
-//            finish()
-//            true
-//        } else {
-//            super.onOptionsItemSelected(item)
-//        }
 
         when(item.itemId){
             R.id.action_logout -> {

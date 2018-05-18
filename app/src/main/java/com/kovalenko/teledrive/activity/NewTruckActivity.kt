@@ -19,8 +19,9 @@ class NewTruckActivity: AppCompatActivity() {
         setContentView(R.layout.activity_new_truck)
 
         mDatabase = FirebaseDatabase.getInstance().reference
+
         fab_submit_truck.setOnClickListener {
-            submitTruck()
+            submitNewTruck()
         }
 
         var values = arrayOfNulls<String>(30)
@@ -42,7 +43,7 @@ class NewTruckActivity: AppCompatActivity() {
         }
     }
 
-    private fun submitTruck() {
+    private fun submitNewTruck() {
 
         val truckBrand = field_truck_brand.text.toString()
         val truckModel = field_truck_model.text.toString()
@@ -73,7 +74,7 @@ class NewTruckActivity: AppCompatActivity() {
         })
     }
 
-    fun addNewTruck(
+    private fun addNewTruck(
             userId: String,
             truckBrand: String,
             truckModel: String,

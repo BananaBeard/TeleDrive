@@ -20,7 +20,7 @@ class TrucksFragment: Fragment() {
 
     private lateinit var mPagerAdapter: PagerAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
             inflater.inflate(R.layout.fragment_trucks, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,5 +52,8 @@ class TrucksFragment: Fragment() {
         }
     }
 
-
+    override fun onStop() {
+        super.onStop()
+        onDestroy()
+    }
 }

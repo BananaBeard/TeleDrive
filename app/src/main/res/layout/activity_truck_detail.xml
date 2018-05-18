@@ -161,7 +161,8 @@
                 android:paddingTop="15dp"
                 android:text="Busy"
                 android:enabled="false"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:checked="false"/>
 
             <View
                 android:id="@+id/divider_edit_truck"

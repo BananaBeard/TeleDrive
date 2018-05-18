@@ -1,4 +1,4 @@
-package com.kovalenko.teledrive.fragments.listfragments.truck
+package com.kovalenko.teledrive.fragments.listfragments.facility
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,26 +14,26 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.kovalenko.teledrive.R
-import com.kovalenko.teledrive.activity.TruckDetailActivity
+import com.kovalenko.teledrive.activity.FacilityDetailActivity
+import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.fragments.DialogDeleteItem
-import com.kovalenko.teledrive.models.Truck
-import com.kovalenko.teledrive.viewholder.TruckViewHolder
-import kotlinx.android.synthetic.main.fragment_truck_list.*
+import com.kovalenko.teledrive.models.Facility
+import com.kovalenko.teledrive.viewholder.FacilityViewHolder
 
-abstract class TruckListFragment: Fragment() {
+class FacilityListFragment: Fragment() {
 
     private lateinit var mDatabase: DatabaseReference
-    private lateinit var mAdapter: FirebaseRecyclerAdapter<Truck, TruckViewHolder>
+    private lateinit var mAdapter: FirebaseRecyclerAdapter<Facility, FacilityViewHolder>
     private lateinit var mRecycler: RecyclerView
     private lateinit var mManager: LinearLayoutManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        var rootView = inflater.inflate(R.layout.fragment_truck_list, container, false)
+        var rootView = inflater.inflate(R.layout.fragment_facility_list, container, false)
 
         mDatabase = FirebaseDatabase.getInstance().reference
-        mRecycler = rootView.findViewById(R.id.trucks_list)
+        mRecycler = rootView.findViewById(R.id.facilities_list)
         mRecycler.setHasFixedSize(false)
 
         return rootView
@@ -47,21 +47,22 @@ abstract class TruckListFragment: Fragment() {
         mManager.stackFromEnd = true
         mRecycler.layoutManager = mManager
 
-        var trucksQuery = getQuery(mDatabase)
+        var facilitiesQuery = getQuery(mDatabase)
 
-        var options = FirebaseRecyclerOptions.Builder<Truck>()
-                .setQuery(trucksQuery, Truck::class.java)
+        var options = FirebaseRecyclerOptions.Builder<Facility>()
+                .setQuery(facilitiesQuery, Facility::class.java)
                 .build()
 
-        mAdapter = object: FirebaseRecyclerAdapter<Truck, TruckViewHolder>(options) {
+        mAdapter = object: FirebaseRecyclerAdapter<Facility, FacilityViewHolder>(options) {
 
-            override fun onBindViewHolder(holder: TruckViewHolder, position: Int, model: Truck) {
-                val truckRef = getRef(position)
-                val truckKey = truckRef.key
+            override fun onBindViewHolder(holder: FacilityViewHolder, position: Int, model: Facility) {
+
+                val facilityRef = getRef(position)
+                val facilityKey = facilityRef.key
 
                 holder!!.itemView.setOnClickListener {
-                    val intent = Intent(activity, TruckDetailActivity::class.java)
-                    intent.putExtra(TruckDetailActivity.EXTRA_TRUCK_KEY, truckKey)
+                    val intent = Intent(activity, FacilityDetailActivity::class.java)
+                    intent.putExtra(FacilityDetailActivity.EXTRA_FACILITY_KEY, facilityKey)
                     startActivity(intent)
                 }
 
@@ -70,27 +71,23 @@ abstract class TruckListFragment: Fragment() {
                 holder.itemView.setOnLongClickListener {
 
                     var dialog = DialogDeleteItem()
-                    dialog.onAcceptListener = {truckRef.removeValue()}
+                    dialog.onAcceptListener = {facilityRef.removeValue()}
 
                     dialog.show(childFragmentManager, "777")
 
                     true
                 }
-                holder.bindToTruck(model)
+                holder.bindToFacility(model)
             }
 
-            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TruckViewHolder {
+            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FacilityViewHolder {
                 var inflater = LayoutInflater.from(parent!!.context)
 
-                return TruckViewHolder(inflater.inflate(R.layout.item_truck, parent, false))
+                return FacilityViewHolder(inflater.inflate(R.layout.item_facility, parent, false))
             }
+
         }
         mRecycler.adapter = mAdapter
-
-        swipe_refresh_trucks.setOnRefreshListener {
-            mAdapter.notifyDataSetChanged()
-            swipe_refresh_trucks.isRefreshing = false
-        }
     }
 
     override fun onStart() {
@@ -112,9 +109,17 @@ abstract class TruckListFragment: Fragment() {
         }
     }
 
-    abstract fun getQuery(databaseReference: DatabaseReference): Query
+    private fun getQuery(databaseReference: DatabaseReference): Query {
+
+        var uId = getUid()
+
+        var allFacilitiesQuery = databaseReference.child(uId).child("facilities")
+                .limitToFirst(1000)
+
+        return allFacilitiesQuery
+    }
 
     companion object {
-        private val TAG = "TruckListFragment"
+        private val TAG = "FacilityListFragment"
     }
 }

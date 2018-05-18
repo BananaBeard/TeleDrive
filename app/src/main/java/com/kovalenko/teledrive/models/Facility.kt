@@ -1,6 +1,6 @@
 package com.kovalenko.teledrive.models
 
 class Facility(
-        var facilityName: String,
-        var address: String
+        var facilityName: String = "",
+        var address: String = ""
 )

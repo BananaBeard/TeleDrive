@@ -3,6 +3,8 @@
     package="com.kovalenko.teledrive">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -20,16 +22,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.LoadDetailActivity" />
         <activity android:name=".activity.NewLoadActivity" />
         <activity android:name=".activity.TruckDetailActivity" />
         <activity android:name=".activity.NewTruckActivity" />
+        <activity android:name=".activity.NewFacilityActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCPcyYa9AVAK9WHE99L8B8VgBOxVjnpCK4" />
+
+        <activity android:name=".activity.FacilityDetailActivity"></activity>
     </application>
 
 </manifest>

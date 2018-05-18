@@ -184,7 +184,6 @@ class TruckDetailActivity : DetailActivity() {
     }
 
     companion object {
-        const val ANIM_DURATION = 750L
         private val TAG = "TruckDetailActivity"
         const val EXTRA_TRUCK_KEY = "truck_key"
     }
