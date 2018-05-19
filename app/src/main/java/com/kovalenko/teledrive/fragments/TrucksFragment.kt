@@ -26,7 +26,7 @@ class TrucksFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mPagerAdapter = object : FragmentPagerAdapter(fragmentManager) {
+        mPagerAdapter = object : FragmentStatePagerAdapter(fragmentManager) {
             val mFragments = arrayOf(
                     AllTrucksFragment(),
                     AvailableTrucksFragment(),
@@ -50,10 +50,5 @@ class TrucksFragment: Fragment() {
             val intent = Intent(activity, NewTruckActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        onDestroy()
     }
 }

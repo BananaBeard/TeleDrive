@@ -152,6 +152,7 @@ class TruckDetailActivity : DetailActivity() {
             updateMap["reeferYear"] = edit_reefer_year.text.toString().toInt()
             updateMap["used"] = switch_truck_busy.isChecked
             mDatabase.child("trucks").child(mTruckKey).updateChildren(updateMap)
+            finish()
         } else {
             return
         }
