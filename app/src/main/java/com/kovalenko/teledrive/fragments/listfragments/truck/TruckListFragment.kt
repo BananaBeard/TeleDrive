@@ -16,11 +16,12 @@ import com.google.firebase.database.Query
 import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.activity.TruckDetailActivity
 import com.kovalenko.teledrive.fragments.DialogDeleteItem
+import com.kovalenko.teledrive.fragments.listfragments.ItemListFragment
 import com.kovalenko.teledrive.models.Truck
 import com.kovalenko.teledrive.viewholder.TruckViewHolder
 import kotlinx.android.synthetic.main.fragment_truck_list.*
 
-abstract class TruckListFragment: Fragment() {
+abstract class TruckListFragment: ItemListFragment() {
 
     private lateinit var mDatabase: DatabaseReference
     private lateinit var mAdapter: FirebaseRecyclerAdapter<Truck, TruckViewHolder>
@@ -111,8 +112,6 @@ abstract class TruckListFragment: Fragment() {
             mAdapter.stopListening()
         }
     }
-
-    abstract fun getQuery(databaseReference: DatabaseReference): Query
 
     companion object {
         private val TAG = "TruckListFragment"

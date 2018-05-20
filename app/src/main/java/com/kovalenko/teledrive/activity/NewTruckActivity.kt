@@ -74,6 +74,11 @@ class NewTruckActivity: AppCompatActivity() {
         })
     }
 
+    private fun validateNewTruck() : Boolean {
+
+        return
+    }
+
     private fun addNewTruck(
             userId: String,
             truckBrand: String,

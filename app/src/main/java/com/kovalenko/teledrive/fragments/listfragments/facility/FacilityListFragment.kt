@@ -17,10 +17,11 @@ import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.activity.FacilityDetailActivity
 import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.fragments.DialogDeleteItem
+import com.kovalenko.teledrive.fragments.listfragments.ItemListFragment
 import com.kovalenko.teledrive.models.Facility
 import com.kovalenko.teledrive.viewholder.FacilityViewHolder
 
-class FacilityListFragment: Fragment() {
+class FacilityListFragment: ItemListFragment() {
 
     private lateinit var mDatabase: DatabaseReference
     private lateinit var mAdapter: FirebaseRecyclerAdapter<Facility, FacilityViewHolder>
@@ -109,7 +110,7 @@ class FacilityListFragment: Fragment() {
         }
     }
 
-    private fun getQuery(databaseReference: DatabaseReference): Query {
+    override fun getQuery(databaseReference: DatabaseReference): Query {
 
         var uId = getUid()
 

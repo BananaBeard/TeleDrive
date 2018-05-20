@@ -82,7 +82,7 @@ class NewFacilityActivity : AppCompatActivity() {
         mDatabase.child(userId).child("facilities").child(key).setValue(facility)
     }
 
-    fun validateNewFacility(): Boolean {
+    private fun validateNewFacility(): Boolean {
 
         var result = true
 

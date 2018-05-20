@@ -12,5 +12,6 @@ class Load(
         var pieces: Int = 0,
         var shipper: Facility? = null,
         var consignee: Facility? = null,
-        var driver: Driver? = null
+        var driver: Driver? = null,
+        var truck: Truck? = null
 )
