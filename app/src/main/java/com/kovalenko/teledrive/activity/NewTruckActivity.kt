@@ -76,7 +76,7 @@ class NewTruckActivity: AppCompatActivity() {
 
     private fun validateNewTruck() : Boolean {
 
-        return
+        return true
     }
 
     private fun addNewTruck(

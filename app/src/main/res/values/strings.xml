@@ -10,5 +10,6 @@
     <string name="menu_drivers">Drivers</string>
     <string name="menu_facilities">Facilities</string>
     <string name="menu_trucks">Trucks</string>
-    <!--<string name="google_api_key">AIzaSyCPcyYa9AVAK9WHE99L8B8VgBOxVjnpCK4</string>-->
+    <string name="menu_map">Route calculator</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

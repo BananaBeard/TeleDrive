@@ -49,6 +49,9 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.content_layout, fragment, "LOADS").commit()
                 }
+                R.id.nav_map -> {
+                    startActivity(getIntent<MapsActivity>())
+                }
             }
             true
         }
@@ -57,6 +60,11 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction()
                 .add(R.id.content_layout, startFragment).commit()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

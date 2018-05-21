@@ -34,7 +34,7 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener{
         super.onStart()
 
         if (mAuth.currentUser != null) {
-            onAuthSuccess(mAuth.currentUser!!)
+            startActivity(getIntent<MainActivity>())
         }
     }
 

@@ -26,7 +26,7 @@ class TrucksFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mPagerAdapter = object : FragmentStatePagerAdapter(fragmentManager) {
+        mPagerAdapter = object : FragmentStatePagerAdapter(childFragmentManager) {
             val mFragments = arrayOf(
                     AllTrucksFragment(),
                     AvailableTrucksFragment(),
