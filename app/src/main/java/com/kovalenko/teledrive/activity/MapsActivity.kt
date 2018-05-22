@@ -13,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.maps.GeoApiContext
 import com.kovalenko.teledrive.R
 import kotlinx.android.synthetic.main.activity_maps.*
 
@@ -44,7 +45,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
 
                 var line = mMap.addPolyline(rectOptions)
 
-                line.endCap = CustomCap(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.sharp_arrow_forward_ios_black_18dp)))
+                //line.endCap = CustomCap(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.sharp_arrow_forward_ios_black_18dp)))
             }
         }
     }
@@ -68,6 +69,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kiev))
         mMap.setMinZoomPreference(8.0f)
         mMap.setMaxZoomPreference(14.0f)
+
+        val geoApiContext = GeoApiContext.Builder().apiKey("AIzaSyCYGk6GHQD_vSLJ2e-NCVBcWIze8SXqkIE").build()
     }
 
 

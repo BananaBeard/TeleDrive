@@ -34,8 +34,12 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database:15.0.1'
     implementation 'com.google.firebase:firebase-auth:15.1.0'
+    implementation 'com.google.firebase:firebase-core:15.0.2'
     api 'com.firebaseui:firebase-ui-database:3.2.2'
     api 'com.google.android.gms:play-services-places:15.0.1'
+
+    api 'org.slf4j:slf4j-nop:1.7.25'
+    api 'com.google.maps:google-maps-services:0.2.7'
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
