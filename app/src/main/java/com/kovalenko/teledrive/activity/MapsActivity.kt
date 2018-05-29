@@ -65,9 +65,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         mMap.setOnMapLongClickListener(this)
 
         val kiev = LatLng(50.431782, 30.516382)
-        mMap.addMarker(MarkerOptions().position(kiev).title("Marker in Sydney"))
+        mMap.addMarker(MarkerOptions().position(kiev).title("Marker in Kiev"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(kiev))
-        mMap.setMinZoomPreference(8.0f)
+        mMap.setMinZoomPreference(10.0f)
         mMap.setMaxZoomPreference(14.0f)
 
         val geoApiContext = GeoApiContext.Builder().apiKey("AIzaSyCYGk6GHQD_vSLJ2e-NCVBcWIze8SXqkIE").build()
