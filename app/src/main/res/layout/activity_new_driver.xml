@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
-    tools:context="com.kovalenko.teledrive.activity.detailactivity.TruckDetailActivity"
-    android:id="@+id/truck_detail_layout">
+    tools:context=".activity.newactivity.NewDriverActivity">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_truck_names"
+        android:id="@+id/card_driver_names"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
@@ -23,53 +21,53 @@
             android:paddingBottom="10dp">
 
             <TextView
-                android:id="@+id/truck_detail_brand_label"
+                android:id="@+id/driver_first_name_label"
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:text="Truck brand:" />
+                android:text="First name:" />
 
             <EditText
-                android:id="@+id/edit_truck_brand"
+                android:id="@+id/input_first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/truck_detail_brand_label"
+                android:layout_alignBaseline="@+id/driver_first_name_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="13dp"
-                android:layout_toEndOf="@id/truck_detail_brand_label"
+                android:layout_toEndOf="@id/driver_first_name_label"
                 android:clickable="false"
-                android:hint="Brand"
-                android:inputType="none"
+                android:hint="First name"
+                android:inputType="text"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
                 android:singleLine="true"
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/load_driver_rate_label"
+                android:id="@+id/driver_second_name_label"
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
-                android:layout_below="@id/truck_detail_brand_label"
+                android:layout_below="@id/driver_first_name_label"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
-                android:text="Truck model:" />
+                android:text="Second name:" />
 
             <EditText
-                android:id="@+id/edit_truck_model"
+                android:id="@+id/input_second_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/load_driver_rate_label"
+                android:layout_alignBaseline="@+id/driver_second_name_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/load_driver_rate_label"
+                android:layout_toEndOf="@+id/driver_second_name_label"
                 android:clickable="false"
-                android:hint="Model"
-                android:inputType="none"
+                android:hint="Second name"
+                android:inputType="text"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
                 android:singleLine="true"
@@ -78,10 +76,10 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_truck_years"
+        android:id="@+id/card_driver_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/card_truck_names"
+        android:layout_below="@id/card_driver_names"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
@@ -93,54 +91,40 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/truck_detail_tractor_label"
+                android:id="@+id/driver_date_label"
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
-                android:text="Tractor year:" />
+                android:text="Birth date:" />
 
             <EditText
-                android:id="@+id/edit_tractor_year"
-                android:layout_width="70dp"
+                android:id="@+id/input_driver_date"
+                android:layout_width="140dp"
                 android:layout_height="50dp"
-                android:layout_alignBottom="@+id/truck_detail_tractor_label"
+                android:layout_alignBottom="@+id/driver_date_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="74dp"
-                android:clickable="false"
-                android:inputType="none"
+                android:inputType="date"
                 android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/truck_detail_reefer_label"
-                style="@style/TextAppearance.AppCompat.Medium"
+            <Button
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:layout_below="@id/truck_detail_tractor_label"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:text="Reefer year:" />
-
-            <EditText
-                android:id="@+id/edit_reefer_year"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_alignBaseline="@id/truck_detail_reefer_label"
-                android:layout_alignBottom="@+id/truck_detail_reefer_label"
-                android:layout_alignStart="@+id/edit_tractor_year"
-                android:clickable="false"
-                android:inputType="none"
-                android:textAlignment="center" />
-
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/button_pick_driver_date"
+                android:layout_below="@+id/driver_date_label"
+                android:layout_centerHorizontal="true"
+                android:text="Pick date"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <!--<android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/card_truck_years"
+        android:layout_below="@id/card_driver_info"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
@@ -186,16 +170,15 @@
                 android:textSize="18sp" />
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_edit_truck"
+        android:id="@+id/fab_submit_driver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
-        android:visibility="invisible"
         app:srcCompat="@drawable/ic_save_black_24dp" />
 
 </RelativeLayout>

@@ -10,22 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import com.kovalenko.teledrive.activity.LoadDetailActivity
+import com.kovalenko.teledrive.activity.detailactivity.LoadDetailActivity
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.fragments.listfragments.ItemListFragment
 import com.kovalenko.teledrive.models.Load
 import com.kovalenko.teledrive.viewholder.LoadViewHolder
 
-abstract class LoadListFragment: Fragment() {
-
-    private lateinit var mDatabase: DatabaseReference
+abstract class LoadListFragment: ItemListFragment() {
 
     private lateinit var mAdapter: FirebaseRecyclerAdapter<Load, LoadViewHolder>
-    private lateinit var mRecycler: RecyclerView
-    private lateinit var mManager: LinearLayoutManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -91,11 +87,6 @@ abstract class LoadListFragment: Fragment() {
             mAdapter.stopListening()
         }
     }
-
-    fun getUid() = FirebaseAuth.getInstance().currentUser!!.uid
-
-
-    abstract fun getQuery(databaseReference: DatabaseReference): Query
 
     companion object {
         private val TAG = "LoadListFragment"

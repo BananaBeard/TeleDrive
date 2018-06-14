@@ -8,17 +8,17 @@ import android.support.v7.app.AlertDialog
 
 class DialogDeleteItem: DialogFragment(){
 
-        lateinit var onAcceptListener: () -> Unit
+    lateinit var onAcceptListener: () -> Unit
 
-        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-            var builder = AlertDialog.Builder(activity!!)
-            builder.setTitle("Are you sure you want to delete this entry?")
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        var builder = AlertDialog.Builder(activity!!)
+        builder.setTitle("Are you sure you want to delete this entry?")
 
-            builder.setPositiveButton("Yes") { _, _ ->
-                onAcceptListener.invoke()
-                dismiss()
-            }
-            builder.setNegativeButton("No") { _, _ -> dismiss() }
-            return builder.create()
+        builder.setPositiveButton("Yes") { _, _ ->
+            onAcceptListener.invoke()
+            dismiss()
         }
+        builder.setNegativeButton("No") { _, _ -> dismiss() }
+        return builder.create()
     }
+}

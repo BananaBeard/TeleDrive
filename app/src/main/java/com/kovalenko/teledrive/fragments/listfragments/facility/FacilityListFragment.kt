@@ -2,7 +2,6 @@ package com.kovalenko.teledrive.fragments.listfragments.facility
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,7 +13,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.kovalenko.teledrive.R
-import com.kovalenko.teledrive.activity.FacilityDetailActivity
+import com.kovalenko.teledrive.activity.detailactivity.FacilityDetailActivity
 import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.fragments.DialogDeleteItem
 import com.kovalenko.teledrive.fragments.listfragments.ItemListFragment
@@ -23,10 +22,7 @@ import com.kovalenko.teledrive.viewholder.FacilityViewHolder
 
 class FacilityListFragment: ItemListFragment() {
 
-    private lateinit var mDatabase: DatabaseReference
     private lateinit var mAdapter: FirebaseRecyclerAdapter<Facility, FacilityViewHolder>
-    private lateinit var mRecycler: RecyclerView
-    private lateinit var mManager: LinearLayoutManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -114,7 +110,7 @@ class FacilityListFragment: ItemListFragment() {
 
         var uId = getUid()
 
-        var allFacilitiesQuery = databaseReference.child(uId).child("facilities")
+        var allFacilitiesQuery = databaseReference.child("facilities").child(uId)
                 .limitToFirst(1000)
 
         return allFacilitiesQuery

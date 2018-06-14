@@ -1,16 +1,8 @@
-package com.kovalenko.teledrive.activity
+package com.kovalenko.teledrive.activity.detailactivity
 
 import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import com.kovalenko.teledrive.R
 
-class FacilityDetailActivity: DetailActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_facility_detail)
-    }
-
+class LoadDetailActivity: DetailActivity() {
     override fun submitChanges() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -24,7 +16,7 @@ class FacilityDetailActivity: DetailActivity() {
     }
 
     companion object {
-        private val TAG = "FacilityDetailActivity"
-        const val EXTRA_FACILITY_KEY = "facility_key"
+        private val TAG = "LoadDetailActivity"
+        public val EXTRA_LOAD_KEY = "load_key"
     }
 }

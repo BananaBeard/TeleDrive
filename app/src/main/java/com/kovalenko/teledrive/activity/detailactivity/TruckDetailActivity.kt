@@ -1,6 +1,5 @@
-package com.kovalenko.teledrive.activity
+package com.kovalenko.teledrive.activity.detailactivity
 
-import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
@@ -9,6 +8,7 @@ import android.view.View
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.models.Truck
 import kotlinx.android.synthetic.main.activity_truck_detail.*
 
@@ -36,7 +36,7 @@ class TruckDetailActivity : DetailActivity() {
         mDatabase = FirebaseDatabase.getInstance().reference
 
         mTruckReference = FirebaseDatabase.getInstance().reference
-                .child("trucks").child(mTruckKey)
+                .child("trucks").child(getUid()).child(mTruckKey)
 
         with(switch_edit_truck){
             setBackgroundColor(Color.GRAY)
@@ -53,13 +53,8 @@ class TruckDetailActivity : DetailActivity() {
         }
 
         switch_edit_truck.setOnCheckedChangeListener { _, p1 ->
-            if (p1) {
-                animateSwitch(switch_edit_truck)
-                enableEdit(p1)
-            } else {
-                animateSwitch(switch_edit_truck)
-                enableEdit(p1)
-            }
+            animateSwitch(switch_edit_truck)
+            enableEdit(p1)
         }
 
         switch_truck_busy.setOnCheckedChangeListener { _, p1 ->
@@ -94,8 +89,8 @@ class TruckDetailActivity : DetailActivity() {
             override fun onCancelled(p0: DatabaseError?) {
                 Log.w(TAG, "loadTruck:onCancelled", p0!!.toException())
 
-                Toast.makeText(this@TruckDetailActivity, "Failed to load post.",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(this@TruckDetailActivity, "Failed to load truck.",
+                        Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -130,18 +125,6 @@ class TruckDetailActivity : DetailActivity() {
         }
     }
 
-    private fun animateSwitch(view: View) {
-        var anim = ObjectAnimator.ofInt(view.background, "alpha", 80)
-        anim.duration = ANIM_DURATION
-
-        var anim2 = ObjectAnimator.ofInt(view.background, "alpha", 0)
-        anim2.duration = ANIM_DURATION
-        anim2.startDelay = ANIM_DURATION
-
-        anim.start()
-        anim2.start()
-    }
-
     override fun submitChanges() {
 
         if (validateChanges()) {
@@ -151,7 +134,7 @@ class TruckDetailActivity : DetailActivity() {
             updateMap["tractorYear"] = edit_tractor_year.text.toString().toInt()
             updateMap["reeferYear"] = edit_reefer_year.text.toString().toInt()
             updateMap["used"] = switch_truck_busy.isChecked
-            mDatabase.child("trucks").child(mTruckKey).updateChildren(updateMap)
+            mDatabase.child("trucks").child(getUid()).child(mTruckKey).updateChildren(updateMap)
             finish()
         } else {
             return

@@ -26,20 +26,22 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.LoadDetailActivity" />
-        <activity android:name=".activity.NewLoadActivity" />
-        <activity android:name=".activity.TruckDetailActivity" />
-        <activity android:name=".activity.NewTruckActivity" />
-        <activity android:name=".activity.NewFacilityActivity" />
+        <activity android:name=".activity.detailactivity.LoadDetailActivity" />
+        <activity android:name=".activity.newactivity.NewLoadActivity" />
+        <activity android:name=".activity.detailactivity.TruckDetailActivity" />
+        <activity android:name=".activity.newactivity.NewTruckActivity" />
+        <activity android:name=".activity.newactivity.NewFacilityActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCPcyYa9AVAK9WHE99L8B8VgBOxVjnpCK4" />
 
-        <activity android:name=".activity.FacilityDetailActivity" />
+        <activity android:name=".activity.detailactivity.FacilityDetailActivity" />
         <activity
             android:name=".activity.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".activity.newactivity.NewDriverActivity" />
+        <activity android:name=".activity.detailactivity.DriverDetailActivity"></activity>
     </application>
 
 </manifest>

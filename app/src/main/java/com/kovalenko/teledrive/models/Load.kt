@@ -10,8 +10,8 @@ class Load(
         var driverRate: Double = 0.0,
         var type: LoadType = LoadType.REEFER,
         var pieces: Int = 0,
-        var shipper: Facility? = null,
-        var consignee: Facility? = null,
-        var driver: Driver? = null,
-        var truck: Truck? = null
+        var shipper: String = "",
+        var consignee: String = "",
+        var driver: String = "",
+        var truck: String = ""
 )

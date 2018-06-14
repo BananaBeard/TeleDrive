@@ -2,7 +2,6 @@ package com.kovalenko.teledrive.fragments.listfragments.truck
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -12,9 +11,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.Query
 import com.kovalenko.teledrive.R
-import com.kovalenko.teledrive.activity.TruckDetailActivity
+import com.kovalenko.teledrive.activity.detailactivity.TruckDetailActivity
 import com.kovalenko.teledrive.fragments.DialogDeleteItem
 import com.kovalenko.teledrive.fragments.listfragments.ItemListFragment
 import com.kovalenko.teledrive.models.Truck
@@ -23,10 +21,7 @@ import kotlinx.android.synthetic.main.fragment_truck_list.*
 
 abstract class TruckListFragment: ItemListFragment() {
 
-    private lateinit var mDatabase: DatabaseReference
     private lateinit var mAdapter: FirebaseRecyclerAdapter<Truck, TruckViewHolder>
-    private lateinit var mRecycler: RecyclerView
-    private lateinit var mManager: LinearLayoutManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)

@@ -3,14 +3,13 @@ package com.kovalenko.teledrive.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.kovalenko.teledrive.R
-import com.kovalenko.teledrive.activity.NewFacilityActivity
+import com.kovalenko.teledrive.activity.newactivity.NewFacilityActivity
 import com.kovalenko.teledrive.fragments.listfragments.facility.FacilityListFragment
 import kotlinx.android.synthetic.main.fragment_facilities.*
 

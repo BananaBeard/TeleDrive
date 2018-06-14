@@ -3,13 +3,12 @@ package com.kovalenko.teledrive.fragments
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kovalenko.teledrive.activity.NewTruckActivity
+import com.kovalenko.teledrive.activity.newactivity.NewTruckActivity
 import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.fragments.listfragments.truck.AllTrucksFragment
 import com.kovalenko.teledrive.fragments.listfragments.truck.AvailableTrucksFragment

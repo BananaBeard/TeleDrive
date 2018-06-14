@@ -1,4 +1,4 @@
-package com.kovalenko.teledrive.activity
+package com.kovalenko.teledrive.activity.newactivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.models.Load
 import com.kovalenko.teledrive.models.User
 import kotlinx.android.synthetic.main.activity_new_load.*
@@ -21,7 +22,6 @@ class NewLoadActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().reference
         fab_submit_load.setOnClickListener {
             submitLoad()
-            field_load_cust.setText("sasassa")
         }
     }
 
@@ -66,7 +66,7 @@ class NewLoadActivity : AppCompatActivity() {
         var key = mDatabase.child("loads").push().key
         var load = Load()
 
-        mDatabase.child("loads").child(key).setValue(load)
+//        mDatabase.child("loads").child(key).setValue(load)
 //        var loadValues = load.toMap()
 //        var childUpdates = HashMap<String, Any?>()
 //        childUpdates["/loads/" + key] = loadValues

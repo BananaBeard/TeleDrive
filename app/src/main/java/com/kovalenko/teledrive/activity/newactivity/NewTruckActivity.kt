@@ -1,4 +1,4 @@
-package com.kovalenko.teledrive.activity
+package com.kovalenko.teledrive.activity.newactivity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.models.Truck
 import com.kovalenko.teledrive.models.User
 import kotlinx.android.synthetic.main.activity_new_truck.*
@@ -86,10 +87,10 @@ class NewTruckActivity: AppCompatActivity() {
             tractorYear: Int,
             reeferYear: Int
     ) {
-        var key = mDatabase.child("trucks").push().key
+        var key = mDatabase.child("trucks").child(userId).push().key
         var truck = Truck(truckBrand, truckModel, tractorYear, reeferYear)
 
-        mDatabase.child("trucks").child(key).setValue(truck)
+        mDatabase.child("trucks").child(userId).child(key).setValue(truck)
     }
 
     companion object {

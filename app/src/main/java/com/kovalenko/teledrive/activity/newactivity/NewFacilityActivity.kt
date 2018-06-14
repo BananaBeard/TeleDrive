@@ -1,6 +1,5 @@
-package com.kovalenko.teledrive.activity
+package com.kovalenko.teledrive.activity.newactivity
 
-import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +8,7 @@ import android.widget.Toast
 import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.firebase.database.*
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.models.Facility
 import com.kovalenko.teledrive.models.User
 import kotlinx.android.synthetic.main.activity_new_facility.*
@@ -79,7 +79,7 @@ class NewFacilityActivity : AppCompatActivity() {
         var key = mDatabase.child(userId).child("facilities").push().key
         var facility = Facility(name, address)
 
-        mDatabase.child(userId).child("facilities").child(key).setValue(facility)
+        mDatabase.child("facilities").child(userId).child(key).setValue(facility)
     }
 
     private fun validateNewFacility(): Boolean {

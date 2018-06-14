@@ -8,7 +8,7 @@ import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.kovalenko.teledrive.activity.NewLoadActivity
+import com.kovalenko.teledrive.activity.newactivity.NewLoadActivity
 import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.fragments.listfragments.load.AllLoadsFragment
 import kotlinx.android.synthetic.main.fragment_loads.*
