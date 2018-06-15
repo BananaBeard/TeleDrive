@@ -4,19 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kovalenko.teledrive.activity.newactivity.NewLoadActivity">
+    android:background="@android:color/darker_gray"
+    tools:context="com.kovalenko.teledrive.activity.newactivity.NewLoadActivity"
+    android:id="@+id/new_load_layout">
 
     <android.support.v7.widget.CardView
-        android:layout_height="wrap_content"
+        android:id="@+id/card_load_main_info"
         android:layout_width="match_parent"
-        android:elevation="10dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="35dp"
-        android:id="@+id/card_load_main_info">
+        android:layout_marginTop="10dp"
+        android:elevation="10dp">
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
+
             <TextView
                 android:id="@+id/load_id_label"
                 style="@style/TextAppearance.AppCompat.Medium"
@@ -50,7 +55,7 @@
                 android:layout_height="36dp"
                 android:layout_below="@id/load_id_label"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Замовник:" />
 
             <EditText
@@ -75,16 +80,18 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_load_rates"
-        android:layout_below="@+id/card_load_main_info"
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
-        >
+        android:layout_below="@+id/card_load_main_info"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/load_customer_rate_label"
                 style="@style/TextAppearance.AppCompat.Medium"
@@ -95,7 +102,7 @@
                 android:text="Оплата замовника:" />
 
             <EditText
-                android:id="@+id/edit_customer_rate"
+                android:id="@+id/input_customer_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/load_customer_rate_label"
@@ -118,17 +125,17 @@
                 android:layout_height="36dp"
                 android:layout_below="@id/load_customer_rate_label"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Оплата водія:" />
 
             <EditText
-                android:id="@+id/edit_truck_model"
+                android:id="@+id/input_driver_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/load_driver_rate_label"
+                android:layout_alignStart="@+id/input_customer_rate"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/load_driver_rate_label"
                 android:clickable="false"
                 android:hint="12345"
@@ -140,79 +147,141 @@
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
-        android:id="@+id/commodity_layout"
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_load_commodity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/card_load_rates"
-        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/load_type_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Тип вантажу:" />
+
+            <Spinner
+                android:id="@+id/spinner_load_type"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/load_type_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/load_type_label" />
+
+            <TextView
+                android:id="@+id/load_pieces_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@+id/load_type_label"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Кількість одиниць вантажу:" />
+
+            <EditText
+                android:id="@+id/input_load_pieces"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/load_pieces_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@id/load_pieces_label"
+                android:hint="1234"
+                android:inputType="number"
+                android:maxLines="1"
+                android:scrollHorizontally="false"
+                android:singleLine="true"
+                android:textAlignment="center" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_load_stops"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_below="@+id/card_load_commodity"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp">
 
-        <Spinner
-            android:id="@+id/field_load_type"
+        <RelativeLayout
+            android:id="@+id/stops_layout"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"/>
+            android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/field_pieces"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:hint="Number of pieces"
-            android:maxLines="1"
-            android:scrollHorizontally="false"
-            android:singleLine="true" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/load_shipper_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Постачальник:" />
 
-    <LinearLayout
-        android:id="@+id/stops_layout"
-        android:layout_below="@+id/commodity_layout"
-        android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/spinner_load_shipper"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/load_shipper_label"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/load_shipper_label" />
 
-        <Spinner
-            android:id="@+id/field_shipper"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/load_consignee_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@+id/load_shipper_label"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Отримувач:" />
 
-        <Spinner
-            android:id="@+id/field_consignee"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            <Spinner
+                android:id="@+id/spinner_load_consignee"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/load_consignee_label"
+                android:layout_alignStart="@+id/spinner_load_shipper"
+                android:layout_marginEnd="15dp"
+                android:layout_toEndOf="@+id/load_consignee_label" />
 
-    <Spinner
-        android:id="@+id/field_driver"
-        android:layout_below="@+id/stops_layout"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="30dp"
-        />
+            <TextView
+                android:id="@+id/load_driver_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@+id/load_consignee_label"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Водій:" />
+
+            <Spinner
+                android:id="@+id/spinner_load_driver"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignBottom="@+id/load_driver_label"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/load_driver_label" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_submit_load"
@@ -221,5 +290,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
-        android:src="@drawable/common_google_signin_btn_icon_dark"/>
+        android:src="@drawable/ic_save_black_24dp" />
 </RelativeLayout>

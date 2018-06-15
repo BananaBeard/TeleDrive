@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.newactivity.NewDriverActivity">
+    android:background="@android:color/darker_gray"
+    tools:context=".activity.newactivity.NewDriverActivity"
+    android:id="@+id/new_driver_layout">
 
     <android.support.v7.widget.CardView
         android:id="@+id/card_driver_names"
@@ -110,13 +112,13 @@
                 android:textAlignment="center" />
 
             <Button
+                android:id="@+id/button_pick_driver_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/button_pick_driver_date"
                 android:layout_below="@+id/driver_date_label"
                 android:layout_centerHorizontal="true"
-                android:text="Pick date"/>
+                android:layout_marginTop="10dp"
+                android:text="Pick date" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

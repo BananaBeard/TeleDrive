@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
-    tools:context=".activity.detailactivity.DriverDetailActivity"
-    android:id="@+id/driver_detail_layout">
+    tools:context=".activity.detailactivity.LoadDetailActivity"
+    android:id="@+id/load_detail_layout">
 
 </android.support.constraint.ConstraintLayout>

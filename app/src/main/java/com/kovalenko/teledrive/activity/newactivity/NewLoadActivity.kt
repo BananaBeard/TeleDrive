@@ -3,6 +3,7 @@ package com.kovalenko.teledrive.activity.newactivity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.kovalenko.teledrive.R
@@ -19,19 +20,49 @@ class NewLoadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_load)
 
+        new_load_layout.background.alpha = 50
+
         mDatabase = FirebaseDatabase.getInstance().reference
+
         fab_submit_load.setOnClickListener {
             submitLoad()
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        mDatabase.child("facilities").child(getUid()).addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot?) {
+                var facilityList = ArrayList<String>()
+
+                for (snapshot in p0!!.children) {
+                    var facilityName = snapshot.child("facilityName").getValue(String::class.java)
+                    facilityList.add(facilityName!!)
+                }
+
+                var facilitiesAdapter = ArrayAdapter<String>(
+                        this@NewLoadActivity,
+                        android.R.layout.simple_spinner_item,
+                        facilityList
+                )
+                facilitiesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinner_load_shipper.adapter = facilitiesAdapter
+            }
+        })
+    }
+
     private fun submitLoad() {
 
-        val loadId = field_load_id.text.toString()
-        val customer = field_load_cust.text.toString()
-
-        val custRate = field_cust_rate.text.toString().toDouble()
-        val driverRate = field_driv_rate.text.toString().toDouble()
+//        val loadId = field_load_id.text.toString()
+//        val customer = field_load_cust.text.toString()
+//
+//        val custRate = field_cust_rate.text.toString().toDouble()
+//        val driverRate = field_driv_rate.text.toString().toDouble()
 
         val userId = getUid()
 
@@ -45,7 +76,7 @@ class NewLoadActivity : AppCompatActivity() {
                             "Error: could not fetch user.",
                             Toast.LENGTH_SHORT).show()
                 } else {
-                    addNewLoad(userId, loadId, customer, custRate, driverRate)
+                    //addNewLoad(userId, loadId, customer, custRate, driverRate)
                 }
                 finish()
             }

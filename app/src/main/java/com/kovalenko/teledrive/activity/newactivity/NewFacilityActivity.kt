@@ -22,6 +22,7 @@ class NewFacilityActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_facility)
 
+        new_facility_layout.background.alpha = 50
         mDatabase = FirebaseDatabase.getInstance().reference
 
         fab_submit_facility.setOnClickListener {

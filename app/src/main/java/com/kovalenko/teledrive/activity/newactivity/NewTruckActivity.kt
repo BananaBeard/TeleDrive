@@ -19,6 +19,8 @@ class NewTruckActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_truck)
 
+        new_truck_layout.background.alpha = 50
+
         mDatabase = FirebaseDatabase.getInstance().reference
 
         fab_submit_truck.setOnClickListener {

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@android:color/darker_gray"
+    android:id="@+id/new_truck_layout">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:elevation="10dp"
-        >
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="60dp"
+        android:elevation="10dp">
+
         <LinearLayout
             android:id="@+id/truck_layout"
             android:layout_width="match_parent"
@@ -49,10 +51,10 @@
 
         <RelativeLayout
             android:id="@+id/truck_years_layout"
-            android:layout_below="@+id/truck_layout"
-            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/truck_layout"
+            android:layout_marginTop="60dp"
             android:orientation="horizontal">
 
             <NumberPicker
@@ -61,8 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="72dp"
-                />
+                android:layout_marginStart="72dp" />
 
             <NumberPicker
                 android:id="@+id/reefer_year_picker"
@@ -70,8 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginEnd="72dp"
-                />
+                android:layout_marginEnd="72dp" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

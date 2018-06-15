@@ -19,7 +19,7 @@ class LoadViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         loadNum.text = load.loadId
         loadRate.text = load.customerRate.toString()
         loadCustomer.text = load.customer
-        loadStart.text = load.shipper?.facilityName ?: "No data"
-        loadDest.text = load.consignee?.facilityName ?: "No data"
+        loadStart.text = load.shipper
+        loadDest.text = load.consignee
     }
 }

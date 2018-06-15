@@ -31,6 +31,8 @@ class NewDriverActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_driver)
 
+        new_driver_layout.background.alpha = 50
+
         mDatabase = FirebaseDatabase.getInstance().reference
 
         fab_submit_driver.setOnClickListener {

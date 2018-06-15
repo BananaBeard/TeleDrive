@@ -2,6 +2,7 @@ package com.kovalenko.teledrive.activity.detailactivity
 
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -24,6 +25,10 @@ class FacilityDetailActivity: DetailActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_facility_detail)
+
+        button_pick_address.alpha = 0.5F
+
+        facility_detail_layout.background.alpha = 50
 
         edit_facility_name.inputType = InputType.TYPE_NULL
         edit_facility_address.inputType = InputType.TYPE_NULL
@@ -116,11 +121,13 @@ class FacilityDetailActivity: DetailActivity() {
             edit_facility_address.inputType = InputType.TYPE_CLASS_TEXT
             button_pick_address.isEnabled = true
             fab_edit_facility.visibility = View.VISIBLE
+            button_pick_address.alpha = 1F
         } else {
             edit_facility_name.inputType = InputType.TYPE_NULL
             edit_facility_address.inputType = InputType.TYPE_NULL
             button_pick_address.isEnabled = false
             fab_edit_facility.visibility = View.INVISIBLE
+            button_pick_address.alpha = 0.5F
         }
     }
 
