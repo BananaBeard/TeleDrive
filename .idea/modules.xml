@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TeleDrive.iml" filepath="$PROJECT_DIR$/.idea/TeleDrive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeleDrive.iml" filepath="$PROJECT_DIR$/TeleDrive.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

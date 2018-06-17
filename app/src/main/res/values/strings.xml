@@ -4,12 +4,12 @@
     <item name="masked" type="id" />
     <string name="title_activity_login">Sign in</string>
 
-    <string name="menu_logout">Log out</string>
+    <string name="menu_logout">Вихід</string>
 
-    <string name="menu_loads">Loads</string>
-    <string name="menu_drivers">Drivers</string>
-    <string name="menu_facilities">Facilities</string>
-    <string name="menu_trucks">Trucks</string>
-    <string name="menu_map">Route calculator</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="menu_loads">Замовлення</string>
+    <string name="menu_drivers">Водії</string>
+    <string name="menu_facilities">Об\'єкти</string>
+    <string name="menu_trucks">Транспортні засоби</string>
+    <string name="menu_map">Калькулятор шляхів</string>
+    <string name="title_activity_maps">Мапа</string>
 </resources>

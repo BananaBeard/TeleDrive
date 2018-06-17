@@ -3,24 +3,32 @@ package com.kovalenko.teledrive.activity.detailactivity
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.location.Geocoder
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.android.gms.location.places.ui.PlacePicker
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.firebase.database.*
+import com.google.android.gms.maps.model.*
 import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.models.Facility
 import kotlinx.android.synthetic.main.activity_facility_detail.*
 
-class FacilityDetailActivity: DetailActivity() {
+class FacilityDetailActivity: DetailActivity(), OnMapReadyCallback {
 
     private lateinit var mDatabase: DatabaseReference
     private lateinit var mFacilityReference: DatabaseReference
     private lateinit var mFacilityListener: ValueEventListener
     private lateinit var mFacilityKey: String
+    private lateinit var mMap: GoogleMap
+    private lateinit var facilityAddress: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +64,9 @@ class FacilityDetailActivity: DetailActivity() {
         button_pick_address.setOnClickListener {
             pickPlace()
         }
+
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.facility_location_map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
     override fun onStart() {
@@ -74,6 +85,7 @@ class FacilityDetailActivity: DetailActivity() {
 
                 edit_facility_name.setText(facility!!.facilityName)
                 edit_facility_address.setText(facility.address)
+                facilityAddress = facility.address
             }
         }
 
@@ -146,6 +158,18 @@ class FacilityDetailActivity: DetailActivity() {
 
                 edit_facility_address.setText(address)
             }
+        }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap?) {
+        mMap = googleMap!!
+
+        var geocoder = Geocoder(this)
+        var address = geocoder.getFromLocationName(facilityAddress, 1)
+
+        if (address.size > 0) {
+            var facilityCoordinates = LatLng(address[0].latitude, address[0].longitude)
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(facilityCoordinates))
         }
     }
 
