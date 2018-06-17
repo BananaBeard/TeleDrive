@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.kovalenko.teledrive.activity.newactivity.NewLoadActivity
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.fragments.listfragments.load.ActiveLoadsFragment
 import com.kovalenko.teledrive.fragments.listfragments.load.AllLoadsFragment
+import com.kovalenko.teledrive.fragments.listfragments.load.AvailableLoadsFragment
 import kotlinx.android.synthetic.main.fragment_loads.*
 
 class LoadsFragment: Fragment() {
@@ -26,8 +28,8 @@ class LoadsFragment: Fragment() {
         mPagerAdapter = object : FragmentPagerAdapter(activity!!.supportFragmentManager) {
             val mFragments = arrayOf(
                     AllLoadsFragment(),
-                    AllLoadsFragment(),
-                    AllLoadsFragment()
+                    AvailableLoadsFragment(),
+                    ActiveLoadsFragment()
             )
             val mFragmentNames = arrayOf(
                     "All loads",

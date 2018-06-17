@@ -32,7 +32,7 @@
                 android:text="Номер замовлення:" />
 
             <EditText
-                android:id="@+id/input_truck_brand"
+                android:id="@+id/input_load_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/load_id_label"
@@ -42,7 +42,7 @@
                 android:layout_toEndOf="@id/load_id_label"
                 android:clickable="false"
                 android:hint="12345"
-                android:inputType="number"
+                android:inputType="textNoSuggestions|number"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
                 android:singleLine="true"
@@ -59,7 +59,7 @@
                 android:text="Замовник:" />
 
             <EditText
-                android:id="@+id/input_truck_model"
+                android:id="@+id/input_customer_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/load_customer_label"
@@ -172,13 +172,14 @@
 
             <Spinner
                 android:id="@+id/spinner_load_type"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_alignBottom="@+id/load_type_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@id/load_type_label" />
+                android:layout_marginStart="70dp"
+                android:layout_toEndOf="@id/load_type_label"
+                />
 
             <TextView
                 android:id="@+id/load_pieces_label"
@@ -206,7 +207,8 @@
                 android:maxLines="1"
                 android:scrollHorizontally="false"
                 android:singleLine="true"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
@@ -241,7 +243,9 @@
                 android:layout_alignBottom="@+id/load_shipper_label"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/load_shipper_label" />
+                android:layout_toEndOf="@+id/load_shipper_label"
+                android:dropDownWidth="match_parent"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/load_consignee_label"
@@ -260,7 +264,8 @@
                 android:layout_alignBottom="@+id/load_consignee_label"
                 android:layout_alignStart="@+id/spinner_load_shipper"
                 android:layout_marginEnd="15dp"
-                android:layout_toEndOf="@+id/load_consignee_label" />
+                android:layout_toEndOf="@+id/load_consignee_label"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/load_driver_label"
@@ -279,7 +284,8 @@
                 android:layout_alignBottom="@+id/load_driver_label"
                 android:layout_marginEnd="15dp"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/load_driver_label" />
+                android:layout_toEndOf="@+id/load_driver_label"
+                android:textAlignment="center" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

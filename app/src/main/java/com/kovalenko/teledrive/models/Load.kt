@@ -8,10 +8,11 @@ class Load(
         var customer: String = "",
         var customerRate: Double = 0.0,
         var driverRate: Double = 0.0,
-        var type: LoadType = LoadType.REEFER,
+        var type: String = "Reefer",
         var pieces: Int = 0,
         var shipper: String = "",
         var consignee: String = "",
         var driver: String = "",
-        var truck: String = ""
+        var truck: String = "",
+        var status: String = "Available"
 )

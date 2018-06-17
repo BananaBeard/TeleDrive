@@ -77,7 +77,7 @@ class NewFacilityActivity : AppCompatActivity() {
 
     private fun addNewFacility(userId: String, name: String, address: String) {
 
-        var key = mDatabase.child(userId).child("facilities").push().key
+        var key = mDatabase.child("facilities").child(userId).push().key
         var facility = Facility(name, address)
 
         mDatabase.child("facilities").child(userId).child(key).setValue(facility)

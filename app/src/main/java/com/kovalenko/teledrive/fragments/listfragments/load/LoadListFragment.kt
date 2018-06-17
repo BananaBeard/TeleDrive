@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.kovalenko.teledrive.activity.detailactivity.LoadDetailActivity
 import com.kovalenko.teledrive.R
+import com.kovalenko.teledrive.fragments.DialogDeleteItem
 import com.kovalenko.teledrive.fragments.listfragments.ItemListFragment
 import com.kovalenko.teledrive.models.Load
 import com.kovalenko.teledrive.viewholder.LoadViewHolder
@@ -66,6 +67,16 @@ abstract class LoadListFragment: ItemListFragment() {
                     var intent = Intent(activity, LoadDetailActivity::class.java)
                     intent.putExtra(LoadDetailActivity.EXTRA_LOAD_KEY, loadKey)
                     startActivity(intent)
+                }
+
+                holder.itemView.setOnLongClickListener {
+
+                    var dialog = DialogDeleteItem()
+                    dialog.onAcceptListener = {loadRef.removeValue()}
+
+                    dialog.show(childFragmentManager, "777")
+
+                    true
                 }
 
                 holder.bindToLoad(model!!)
