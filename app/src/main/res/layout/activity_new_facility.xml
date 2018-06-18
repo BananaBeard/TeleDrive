@@ -30,7 +30,7 @@
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Facility name:" />
+                android:text="Назва об'єкту:" />
 
             <EditText
                 android:id="@+id/input_facility_name"
@@ -39,7 +39,7 @@
                 android:layout_alignBaseline="@+id/facility_name_label"
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@id/facility_name_label"
-                android:hint="Name"
+                android:hint="Назва"
                 android:inputType="text"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
@@ -71,7 +71,7 @@
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Address:" />
+                android:text="Адреса:" />
 
             <EditText
                 android:id="@+id/input_facility_address"
@@ -80,7 +80,7 @@
                 android:layout_alignBaseline="@+id/facility_address_label"
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@id/facility_address_label"
-                android:hint="Address"
+                android:hint="Адреса"
                 android:inputType="text"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
@@ -109,6 +109,6 @@
         android:background="?attr/colorAccent"
         android:paddingEnd="5dp"
         android:paddingStart="5dp"
-        android:text="Pick address"
+        android:text="Вибрати адресу"
         android:textColor="@color/cardview_light_background" />
 </RelativeLayout>

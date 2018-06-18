@@ -82,11 +82,6 @@ abstract class TruckListFragment: ItemListFragment() {
             }
         }
         mRecycler.adapter = mAdapter
-
-        swipe_refresh_trucks.setOnRefreshListener {
-            mAdapter.notifyDataSetChanged()
-            swipe_refresh_trucks.isRefreshing = false
-        }
     }
 
     override fun onStart() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +8,155 @@
     tools:context=".activity.detailactivity.DriverDetailActivity"
     android:id="@+id/driver_detail_layout">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_driver_detail_names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="35dp"
+        android:elevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/driver_detail_first_name_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="Ім'я водія:" />
+
+            <EditText
+                android:id="@+id/edit_first_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/driver_detail_first_name_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="40dp"
+                android:layout_toEndOf="@id/driver_detail_first_name_label"
+                android:clickable="false"
+                android:hint="Ім'я"
+                android:inputType="text"
+                android:maxLines="1"
+                android:scrollHorizontally="false"
+                android:singleLine="true"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/driver_detail_second_name_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_below="@id/driver_detail_first_name_label"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:text="Фамілія:" />
+
+            <EditText
+                android:id="@+id/edit_second_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/driver_detail_second_name_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_alignStart="@id/edit_first_name"
+                android:layout_toEndOf="@+id/driver_detail_second_name_label"
+                android:clickable="false"
+                android:hint="Фамілія"
+                android:inputType="text"
+                android:maxLines="1"
+                android:scrollHorizontally="false"
+                android:singleLine="true"
+                android:textAlignment="center" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_detail_driver_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_driver_detail_names"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:elevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/driver_detail_date_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:text="Дата народження:" />
+
+            <EditText
+                android:id="@+id/edit_driver_date"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@+id/driver_detail_date_label"
+                android:layout_toEndOf="@id/driver_detail_date_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:inputType="date"
+                android:textAlignment="center" />
+
+            <Button
+                android:id="@+id/button_edit_pick_driver_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/driver_detail_date_label"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Вибрати дату"
+                android:enabled="false"/>
+
+            <View
+                android:id="@+id/divider_edit_driver"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/button_edit_pick_driver_date"
+                android:background="?android:attr/listDivider" />
+
+            <Switch
+                android:id="@+id/switch_edit_driver"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/divider_edit_driver"
+                android:paddingBottom="15dp"
+                android:paddingEnd="15dp"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:text="Редагування"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_edit_driver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:visibility="invisible"
+        app:backgroundTint="?attr/colorAccent"
+        app:srcCompat="@drawable/ic_save_black_24dp" />
+
+</RelativeLayout>

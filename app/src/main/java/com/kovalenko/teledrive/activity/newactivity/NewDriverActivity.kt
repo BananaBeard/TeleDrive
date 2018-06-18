@@ -67,10 +67,11 @@ class NewDriverActivity : AppCompatActivity() {
                 } else {
                     addNewDriver(
                             userId,
-                            input_first_name.text.toString(),
-                            input_second_name.text.toString(),
-                            input_driver_date.text.toString()
+                            input_first_name.text.toString().trim(),
+                            input_second_name.text.toString().trim(),
+                            input_driver_date.text.toString().trim()
                     )
+                    finish()
                 }
             }
         })

@@ -12,13 +12,13 @@ class DialogDeleteItem: DialogFragment(){
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         var builder = AlertDialog.Builder(activity!!)
-        builder.setTitle("Are you sure you want to delete this entry?")
+        builder.setTitle("Ви впевнені, що бажаєте видалити цей запис?")
 
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Так") { _, _ ->
             onAcceptListener.invoke()
             dismiss()
         }
-        builder.setNegativeButton("No") { _, _ -> dismiss() }
+        builder.setNegativeButton("Ні") { _, _ -> dismiss() }
         return builder.create()
     }
 }

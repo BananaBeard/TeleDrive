@@ -33,21 +33,26 @@ class MainActivity : AppCompatActivity() {
                     fragment = LoadsFragment()
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.content_layout, fragment, "LOADS").commit()
+                    supportActionBar!!.title = "Замовлення"
+
                 }
                 R.id.nav_drivers -> {
                     fragment = DriversFragment()
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.content_layout, fragment, "LOADS").commit()
+                    supportActionBar!!.title = "Водії"
                 }
                 R.id.nav_trucks -> {
                     fragment = TrucksFragment()
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.content_layout, fragment, "LOADS").commit()
+                    supportActionBar!!.title = "Транспортні засоби"
                 }
                 R.id.nav_facilities -> {
                     fragment = FacilitiesFragment()
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.content_layout, fragment, "LOADS").commit()
+                    supportActionBar!!.title = "Об'єкти"
                 }
                 R.id.nav_map -> {
                     startActivity(getIntent<MapsActivity>())

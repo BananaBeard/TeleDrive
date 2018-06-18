@@ -20,6 +20,7 @@ import com.kovalenko.teledrive.R
 import com.kovalenko.teledrive.activity.getUid
 import com.kovalenko.teledrive.models.Facility
 import kotlinx.android.synthetic.main.activity_facility_detail.*
+import java.util.*
 
 class FacilityDetailActivity: DetailActivity(), OnMapReadyCallback {
 
@@ -28,7 +29,6 @@ class FacilityDetailActivity: DetailActivity(), OnMapReadyCallback {
     private lateinit var mFacilityListener: ValueEventListener
     private lateinit var mFacilityKey: String
     private lateinit var mMap: GoogleMap
-    private lateinit var facilityAddress: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +85,8 @@ class FacilityDetailActivity: DetailActivity(), OnMapReadyCallback {
 
                 edit_facility_name.setText(facility!!.facilityName)
                 edit_facility_address.setText(facility.address)
-                facilityAddress = facility.address
+
+                setLocationOnMap(facility.address, facility.facilityName)
             }
         }
 
@@ -103,8 +104,8 @@ class FacilityDetailActivity: DetailActivity(), OnMapReadyCallback {
 
         if (validateChanges()) {
             val updateMap = HashMap<String, Any>()
-            updateMap["facilityName"] = edit_facility_name.text.toString()
-            updateMap["address"] = edit_facility_address.text.toString()
+            updateMap["facilityName"] = edit_facility_name.text.toString().trim()
+            updateMap["address"] = edit_facility_address.text.toString().trim()
             mDatabase.child("facilities").child(getUid()).child(mFacilityKey).updateChildren(updateMap)
             finish()
         } else {
@@ -163,13 +164,17 @@ class FacilityDetailActivity: DetailActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap?) {
         mMap = googleMap!!
+        mMap.setMinZoomPreference(14.0f)
+    }
 
-        var geocoder = Geocoder(this)
-        var address = geocoder.getFromLocationName(facilityAddress, 1)
+    fun setLocationOnMap(address: String, name: String) {
+        var geocoder = Geocoder(this, Locale("Ukrainian"))
+        var address = geocoder.getFromLocationName(address, 1)
 
         if (address.size > 0) {
             var facilityCoordinates = LatLng(address[0].latitude, address[0].longitude)
             mMap.moveCamera(CameraUpdateFactory.newLatLng(facilityCoordinates))
+            mMap.addMarker(MarkerOptions().position(facilityCoordinates).title(name))
         }
     }
 

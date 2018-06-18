@@ -9,7 +9,7 @@
     tools:context="com.kovalenko.teledrive.activity.detailactivity.TruckDetailActivity">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_truck_names"
+        android:id="@+id/card_truck_detail_names"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
@@ -29,7 +29,7 @@
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:text="Truck brand:" />
+                android:text="Марка:" />
 
             <EditText
                 android:id="@+id/edit_truck_brand"
@@ -38,10 +38,10 @@
                 android:layout_alignBaseline="@+id/truck_detail_brand_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                android:layout_marginStart="13dp"
+                android:layout_marginStart="50dp"
                 android:layout_toEndOf="@id/truck_detail_brand_label"
                 android:clickable="false"
-                android:hint="Brand"
+                android:hint="Марка"
                 android:inputType="none"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
@@ -49,26 +49,26 @@
                 android:textAlignment="center" />
 
             <TextView
-                android:id="@+id/load_driver_rate_label"
+                android:id="@+id/truck_detail_model_label"
                 style="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_below="@id/truck_detail_brand_label"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
-                android:text="Truck model:" />
+                android:text="Модель:" />
 
             <EditText
-                android:id="@+id/input_truck_model"
+                android:id="@+id/edit_truck_model"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/load_driver_rate_label"
+                android:layout_alignBaseline="@+id/truck_detail_model_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/load_driver_rate_label"
+                android:layout_alignStart="@id/edit_truck_brand"
+                android:layout_toEndOf="@+id/truck_detail_model_label"
                 android:clickable="false"
-                android:hint="Model"
+                android:hint="Модель"
                 android:inputType="none"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
@@ -78,10 +78,10 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_truck_years"
+        android:id="@+id/card_truck_detail_years"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/card_truck_names"
+        android:layout_below="@id/card_truck_detail_names"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
@@ -99,7 +99,7 @@
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
-                android:text="Tractor year:" />
+                android:text="Рік тягача:" />
 
             <EditText
                 android:id="@+id/edit_tractor_year"
@@ -110,7 +110,8 @@
                 android:layout_marginEnd="74dp"
                 android:clickable="false"
                 android:inputType="none"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:hint="1234"/>
 
             <TextView
                 android:id="@+id/truck_detail_reefer_label"
@@ -120,7 +121,7 @@
                 android:layout_below="@id/truck_detail_tractor_label"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:text="Reefer year:" />
+                android:text="Рік трейлера:" />
 
             <EditText
                 android:id="@+id/edit_reefer_year"
@@ -131,7 +132,8 @@
                 android:layout_alignStart="@+id/edit_tractor_year"
                 android:clickable="false"
                 android:inputType="none"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:hint="1234"/>
 
         </RelativeLayout>
 
@@ -140,7 +142,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/card_truck_years"
+        android:layout_below="@id/card_truck_detail_years"
         android:layout_marginEnd="5dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
@@ -161,15 +163,49 @@
                 android:paddingEnd="15dp"
                 android:paddingStart="15dp"
                 android:paddingTop="15dp"
-                android:text="Busy"
+                android:text="Виконує замовлення"
                 android:textSize="18sp" />
 
             <View
-                android:id="@+id/divider_edit_truck"
+                android:id="@+id/divider_edit_truck1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/switch_truck_busy"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/truck_load_label"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_below="@+id/divider_edit_truck1"
+                android:layout_marginTop="15dp"
+                android:text="Виконує замовлення:" />
+
+            <EditText
+                android:id="@+id/edit_truck_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/truck_load_label"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="13dp"
+                android:layout_toEndOf="@id/truck_load_label"
+                android:hint="12345"
+                android:inputType="textNoSuggestions|number"
+                android:maxLines="1"
+                android:scrollHorizontally="false"
+                android:singleLine="true"
+                android:textAlignment="center" />
+
+            <View
+                android:id="@+id/divider_edit_truck2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/truck_load_label"
                 android:background="?android:attr/listDivider" />
 
             <Switch
@@ -177,12 +213,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_below="@id/divider_edit_truck"
+                android:layout_below="@id/divider_edit_truck2"
                 android:paddingBottom="15dp"
                 android:paddingEnd="15dp"
                 android:paddingStart="15dp"
                 android:paddingTop="15dp"
-                android:text="Edit"
+                android:text="Редагування"
                 android:textSize="18sp" />
         </RelativeLayout>
 

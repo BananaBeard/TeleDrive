@@ -13,58 +13,43 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/truck_brand"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/truck_info"
-            android:orientation="horizontal">
+            android:layout_marginStart="10dp"
+            android:layout_alignParentStart="true"
+            tools:text="Lamborghini" />
 
-            <TextView
-                android:id="@+id/truck_brand"
-                style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_horizontal"
-                tools:text="Alison" />
-
-            <TextView
-                android:id="@+id/truck_model"
-                style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_horizontal"
-                tools:text="2200RDS" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/truck_model"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/truck_years"
-            android:orientation="horizontal"
-            android:layout_below="@+id/truck_info"
-            android:layout_marginTop="10dp">
-            <TextView
-                android:id="@+id/tractor_year"
-                style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:layout_gravity="center_horizontal"
-                tools:text="2011" />
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/truck_brand"
+            android:layout_alignBaseline="@id/truck_brand"
+            tools:text="Gallardo" />
 
-            <TextView
-                android:id="@+id/reefer_year"
-                style="@style/TextAppearance.AppCompat.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center_horizontal"
-                tools:text="2013" />
-        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tractor_year"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/truck_brand"
+            android:layout_marginTop="10dp"
+            tools:text="Рік тягача: 2011" />
+
+        <TextView
+            android:id="@+id/reefer_year"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBaseline="@id/tractor_year"
+            tools:text="Рік трейлера: 2013" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

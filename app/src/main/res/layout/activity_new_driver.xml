@@ -29,7 +29,7 @@
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:text="First name:" />
+                android:text="Ім'я водія:" />
 
             <EditText
                 android:id="@+id/input_first_name"
@@ -38,10 +38,10 @@
                 android:layout_alignBaseline="@+id/driver_first_name_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                android:layout_marginStart="13dp"
+                android:layout_marginStart="40dp"
                 android:layout_toEndOf="@id/driver_first_name_label"
                 android:clickable="false"
-                android:hint="First name"
+                android:hint="Ім'я"
                 android:inputType="text"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
@@ -56,7 +56,7 @@
                 android:layout_below="@id/driver_first_name_label"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
-                android:text="Second name:" />
+                android:text="Фамілія:" />
 
             <EditText
                 android:id="@+id/input_second_name"
@@ -65,10 +65,10 @@
                 android:layout_alignBaseline="@+id/driver_second_name_label"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                android:layout_marginStart="10dp"
+                android:layout_alignStart="@id/input_first_name"
                 android:layout_toEndOf="@+id/driver_second_name_label"
                 android:clickable="false"
-                android:hint="Second name"
+                android:hint="Фамілія"
                 android:inputType="text"
                 android:maxLines="1"
                 android:scrollHorizontally="false"
@@ -99,15 +99,16 @@
                 android:layout_height="36dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
-                android:text="Birth date:" />
+                android:text="Дата народження:" />
 
             <EditText
                 android:id="@+id/input_driver_date"
-                android:layout_width="140dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_alignBottom="@+id/driver_date_label"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="74dp"
+                android:layout_toEndOf="@id/driver_date_label"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
                 android:inputType="date"
                 android:textAlignment="center" />
 
@@ -118,61 +119,10 @@
                 android:layout_below="@+id/driver_date_label"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="Pick date" />
+                android:text="Вибрати дату" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
-
-    <!--<android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/card_driver_info"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:elevation="10dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Switch
-                android:id="@+id/switch_truck_busy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:paddingBottom="15dp"
-                android:paddingEnd="15dp"
-                android:paddingStart="15dp"
-                android:paddingTop="15dp"
-                android:text="Busy"
-                android:enabled="false"
-                android:textSize="18sp"
-                android:checked="false"/>
-
-            <View
-                android:id="@+id/divider_edit_truck"
-                android:layout_below="@id/switch_truck_busy"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentStart="true"
-                android:background="?android:attr/listDivider" />
-
-            <Switch
-                android:id="@+id/switch_edit_truck"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@id/divider_edit_truck"
-                android:paddingBottom="15dp"
-                android:paddingEnd="15dp"
-                android:paddingStart="15dp"
-                android:paddingTop="15dp"
-                android:text="Edit"
-                android:textSize="18sp" />
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_submit_driver"
@@ -181,6 +131,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
+        app:backgroundTint="?attr/colorAccent"
         app:srcCompat="@drawable/ic_save_black_24dp" />
 
 </RelativeLayout>

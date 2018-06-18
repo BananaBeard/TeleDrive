@@ -4,11 +4,11 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.Query
 import com.kovalenko.teledrive.activity.getUid
 
-class AvailableDriversFragment: DriverListFragment() {
+class AllDriversFragment: DriverListFragment() {
     override fun getQuery(databaseReference: DatabaseReference): Query {
-        var availableDriversQuery = databaseReference.child("drivers").child(getUid()).orderByChild("working").equalTo(false)
+        var activeLoadsQuery = databaseReference.child("drivers").child(getUid())
                 .limitToFirst(1000)
 
-        return availableDriversQuery
+        return activeLoadsQuery
     }
 }

@@ -27,16 +27,16 @@ class TruckDetailActivity : DetailActivity() {
         truck_detail_layout.background.alpha = 50
 
         edit_truck_brand.inputType = InputType.TYPE_NULL
-        input_truck_model.inputType = InputType.TYPE_NULL
+        edit_truck_model.inputType = InputType.TYPE_NULL
         edit_tractor_year.inputType = InputType.TYPE_NULL
         edit_reefer_year.inputType = InputType.TYPE_NULL
+        edit_truck_load.inputType = InputType.TYPE_NULL
 
         mTruckKey = intent.getStringExtra(EXTRA_TRUCK_KEY)
 
         mDatabase = FirebaseDatabase.getInstance().reference
 
-        mTruckReference = FirebaseDatabase.getInstance().reference
-                .child("trucks").child(getUid()).child(mTruckKey)
+        mTruckReference = mDatabase.child("trucks").child(getUid()).child(mTruckKey)
 
         with(switch_edit_truck){
             setBackgroundColor(Color.GRAY)
@@ -58,11 +58,7 @@ class TruckDetailActivity : DetailActivity() {
         }
 
         switch_truck_busy.setOnCheckedChangeListener { _, p1 ->
-            if (p1) {
-                animateSwitch(switch_truck_busy)
-            } else {
-                animateSwitch(switch_truck_busy)
-            }
+            animateSwitch(switch_truck_busy)
         }
 
         fab_edit_truck.setOnClickListener {
@@ -80,10 +76,14 @@ class TruckDetailActivity : DetailActivity() {
                 var truck = dataSnapshot!!.getValue(Truck::class.java)
 
                 edit_truck_brand.setText(truck!!.brand)
-                input_truck_model.setText(truck.model)
+                edit_truck_model.setText(truck.model)
                 edit_tractor_year.setText(truck.tractorYear.toString())
                 edit_reefer_year.setText(truck.reeferYear.toString())
                 switch_truck_busy.isChecked = truck.isUsed
+
+                if (truck.isUsed) {
+                    edit_truck_load.setText(truck.load)
+                }
             }
 
             override fun onCancelled(p0: DatabaseError?) {
@@ -110,16 +110,18 @@ class TruckDetailActivity : DetailActivity() {
     override fun enableEdit(switch: Boolean) {
         if (switch) {
             edit_truck_brand.inputType = InputType.TYPE_CLASS_TEXT
-            input_truck_model.inputType = InputType.TYPE_CLASS_TEXT
+            edit_truck_model.inputType = InputType.TYPE_CLASS_TEXT
             edit_tractor_year.inputType = InputType.TYPE_CLASS_NUMBER
             edit_reefer_year.inputType = InputType.TYPE_CLASS_NUMBER
+            edit_truck_load.inputType = InputType.TYPE_CLASS_NUMBER
             switch_truck_busy.isEnabled = true
             fab_edit_truck.visibility = View.VISIBLE
         } else {
             edit_truck_brand.inputType = InputType.TYPE_NULL
-            input_truck_model.inputType = InputType.TYPE_NULL
+            edit_truck_model.inputType = InputType.TYPE_NULL
             edit_tractor_year.inputType = InputType.TYPE_NULL
             edit_reefer_year.inputType = InputType.TYPE_NULL
+            edit_truck_load.inputType = InputType.TYPE_NULL
             switch_truck_busy.isEnabled = false
             fab_edit_truck.visibility = View.INVISIBLE
         }
@@ -130,7 +132,7 @@ class TruckDetailActivity : DetailActivity() {
         if (validateChanges()) {
             val updateMap = HashMap<String, Any>()
             updateMap["brand"] = edit_truck_brand.text.toString()
-            updateMap["model"] = input_truck_model.text.toString()
+            updateMap["model"] = edit_truck_model.text.toString()
             updateMap["tractorYear"] = edit_tractor_year.text.toString().toInt()
             updateMap["reeferYear"] = edit_reefer_year.text.toString().toInt()
             updateMap["used"] = switch_truck_busy.isChecked
@@ -150,8 +152,8 @@ class TruckDetailActivity : DetailActivity() {
             result = false
         }
 
-        if (input_truck_model.text.isEmpty()) {
-            input_truck_model.error = "Required"
+        if (edit_truck_model.text.isEmpty()) {
+            edit_truck_model.error = "Required"
             result = false
         }
 

@@ -105,14 +105,14 @@ class SignInActivity : AppCompatActivity(), View.OnClickListener{
 
         if (input_email.text.toString().isEmpty() || !input_email.text.toString().contains("@")) {
             result = false
-            input_email.error = "Required"
+            input_email.error = "Обов'язково"
         } else {
             input_email.error = null
         }
 
         if (input_password.text.toString().isEmpty()) {
             result = false
-            input_email.error = "Required"
+            input_email.error = "Обов'язково"
         } else {
             input_password.error = null
         }

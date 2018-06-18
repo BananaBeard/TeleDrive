@@ -14,5 +14,7 @@ class Load(
         var consignee: String = "",
         var driver: String = "",
         var truck: String = "",
-        var status: String = "Available"
+        var status: String = "Available",
+        var latitude: Double = 0.0,
+        var longitude: Double = 0.0
 )

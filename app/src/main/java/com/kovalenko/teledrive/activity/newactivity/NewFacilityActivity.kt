@@ -68,7 +68,11 @@ class NewFacilityActivity : AppCompatActivity() {
                             "Error: could not fetch user.",
                             Toast.LENGTH_SHORT).show()
                 } else {
-                    addNewFacility(userId, input_facility_name.text.toString(), input_facility_address.text.toString())
+                    addNewFacility(
+                            userId,
+                            input_facility_name.text.toString().trim(),
+                            input_facility_address.text.toString().trim()
+                    )
                 }
                 finish()
             }

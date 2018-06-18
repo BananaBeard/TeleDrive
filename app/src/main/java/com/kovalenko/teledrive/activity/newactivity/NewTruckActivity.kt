@@ -28,31 +28,15 @@ class NewTruckActivity: AppCompatActivity() {
         }
 
         var values = arrayOfNulls<String>(30)
-
-        for (i in 1990..2019) {
-            values[i-1990] = i.toString()
-        }
-
-        with(tractor_year_picker) {
-            maxValue = values[values.size-1]!!.toInt()
-            minValue = values[0]!!.toInt()
-            displayedValues = values
-        }
-
-        with(reefer_year_picker) {
-            maxValue = values[values.size-1]!!.toInt()
-            minValue = values[0]!!.toInt()
-            displayedValues = values
-        }
     }
 
     private fun submitNewTruck() {
 
-        val truckBrand = field_truck_brand.text.toString()
-        val truckModel = field_truck_model.text.toString()
+        val truckBrand = input_truck_brand.text.toString().trim()
+        val truckModel = edit_truck_model.text.toString().trim()
 
-        val tractorYear = tractor_year_picker.value
-        val reeferYear = reefer_year_picker.value
+        val tractorYear = input_tractor_year.text.toString().trim().toInt()
+        val reeferYear = input_reefer_year.text.toString().trim().toInt()
 
         val userId = getUid()
 

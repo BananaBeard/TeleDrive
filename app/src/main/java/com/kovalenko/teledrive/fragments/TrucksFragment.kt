@@ -32,9 +32,9 @@ class TrucksFragment: Fragment() {
                     BusyTrucksFragment()
             )
             val mFragmentNames = arrayOf(
-                    "All truck",
-                    "Avl trucks",
-                    "Busy trucks"
+                    "Усі",
+                    "Вільні",
+                    "Зайняті"
             )
 
             override fun getItem(position: Int) = mFragments[position]

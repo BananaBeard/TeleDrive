@@ -8,15 +8,15 @@ import com.kovalenko.teledrive.models.Truck
 
 class TruckViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    var truckBrand: TextView = itemView.findViewById(R.id.truck_brand)
-    var truckModel: TextView = itemView.findViewById(R.id.truck_model)
-    var truckTractorYear: TextView = itemView.findViewById(R.id.tractor_year)
-    var truckReeferYear: TextView = itemView.findViewById(R.id.reefer_year)
+    private var truckBrand: TextView = itemView.findViewById(R.id.truck_brand)
+    private var truckModel: TextView = itemView.findViewById(R.id.truck_model)
+    private var truckTractorYear: TextView = itemView.findViewById(R.id.tractor_year)
+    private var truckReeferYear: TextView = itemView.findViewById(R.id.reefer_year)
 
     fun bindToTruck(truck: Truck) {
         truckBrand.text = truck.brand
         truckModel.text = truck.model
-        truckReeferYear.text = truck.reeferYear.toString()
-        truckTractorYear.text = truck.tractorYear.toString()
+        truckReeferYear.text = "Рік трейлера: ${truck.reeferYear}"
+        truckTractorYear.text = "Рік тягача: ${truck.tractorYear}"
     }
 }

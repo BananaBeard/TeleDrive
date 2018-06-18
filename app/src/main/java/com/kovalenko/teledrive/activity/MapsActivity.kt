@@ -13,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
 import com.kovalenko.teledrive.R
 import kotlinx.android.synthetic.main.activity_maps.*
@@ -21,7 +22,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
 
     private lateinit var mMap: GoogleMap
 
-    private var markerList = ArrayList<Marker>()
+    private var places = ArrayList<LatLng>()
 
     private var counter = 0
 
@@ -34,19 +35,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         mapFragment.getMapAsync(this)
 
         button_draw.setOnClickListener {
-            if (!markerList.isEmpty()) {
-                var rectOptions = PolylineOptions()
 
-                for (marker in markerList) {
-                    rectOptions.add(marker.position)
-                }
+            val geoApiContext = GeoApiContext.Builder().apiKey("AIzaSyCphOvZgrSIJFxVLqytWib82pin6cfanzc").build()
 
-                rectOptions.add(markerList[0].position)
+            var result = DirectionsApi.newRequest(geoApiContext)
+                    .origin(com.google.maps.model.LatLng(places[0].latitude, places[0].longitude))
+                    .destination(com.google.maps.model.LatLng(places[places.size-1].latitude, places[places.size-1].longitude))
+                    .waypoints(
+                            com.google.maps.model.LatLng(places[1].latitude, places[1].longitude),
+                            com.google.maps.model.LatLng(places[0].latitude, places[2].longitude)
+                    ).await()
 
-                var line = mMap.addPolyline(rectOptions)
+            var path = result.routes[0].overviewPolyline.decodePath()
 
-                //line.endCap = CustomCap(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(resources, R.drawable.sharp_arrow_forward_ios_black_18dp)))
+            var line = PolylineOptions()
+            var latLngBuilder = LatLngBounds.Builder()
+
+            for (i in path) {
+                line.add(LatLng(i.lat, i.lng))
+                latLngBuilder.include(LatLng(i.lat, i.lng))
             }
+
+            line.width(16F).color(R.color.colorAccent)
+            mMap.addPolyline(line)
         }
     }
 
@@ -70,7 +81,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
         mMap.setMinZoomPreference(10.0f)
         mMap.setMaxZoomPreference(14.0f)
 
-        val geoApiContext = GeoApiContext.Builder().apiKey("AIzaSyCYGk6GHQD_vSLJ2e-NCVBcWIze8SXqkIE").build()
     }
 
 
@@ -88,7 +98,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMapLon
                 .position(p0!!)
                 .title("$counter"))
 
-        markerList.add(marker)
+        places.add(LatLng(marker.position.latitude, marker.position.longitude))
 
         counter++
     }
